@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  devin_postgres:
+    image: postgres:latest
+    container_name: 'shoppingList'
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASE: shoppingList
