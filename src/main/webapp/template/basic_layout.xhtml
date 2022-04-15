@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet name="css/styles.css"/>
+    <h:outputStylesheet name="css/bootstrap.css"/>
+    <title><ui:insert name="title">Page Title - </ui:insert>Shopping List</title>
+</h:head>
+
+<h:body>
+    <div id="page">
+
+        <div id="header">
+            <h1 class="text-center">
+                <ui:insert name="header">
+                    <ui:include src="/template/basic_header.xhtml"/>
+                </ui:insert>
+            </h1>
+        </div>
+
+        <div id="content" class="container-fluid d-flex mt-5 justify-content-center">
+            <ui:insert name="content">
+                <ui:include src="/template/basic_content.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <div id="footer">
+            <ui:insert name="footer">
+                <ui:include src="/template/basic_footer.xhtml"/>
+            </ui:insert>
+        </div>
+
+    </div>
+
+</h:body>
+</html>
