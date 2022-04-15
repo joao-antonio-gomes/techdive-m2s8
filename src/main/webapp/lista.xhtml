@@ -11,23 +11,35 @@
         Shopping List
     </ui:define>
     <ui:define name="content">
-        <h:panelGroup styleClass="" style="width: 600px">
-            <h:form styleClass="" style="width: 600px">
+        <h:panelGroup styleClass="" style="width: 900px">
+            <h:form styleClass="" style="width: 900px">
                 <h:panelGroup styleClass="mb-3 row d-flex justify-content-between align-items-center">
                     <h:outputText value="Item" styleClass="form-label col-sm-1"/>
-                    <h:panelGroup styleClass="col-sm-9">
-                        <h:inputText id="name" value="#{listBean.item}" styleClass="form-control col-sm-10"/>
+                    <h:panelGroup styleClass="col-sm-4">
+                        <h:inputText id="name" value="#{listBean.item.name}" styleClass="form-control"/>
+                    </h:panelGroup>
+                    <h:outputText value="Quantidade" styleClass="form-label col-sm-1"/>
+                    <h:panelGroup styleClass="col-sm-1">
+                        <h:inputText id="quantity" value="#{listBean.item.quantity}" styleClass="form-control"/>
+                    </h:panelGroup>
+                    <h:panelGroup styleClass="col-sm-2">
+                        <h:selectOneMenu value="#{listBean.item.unityType}" styleClass="form-select">
+                            <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                            <f:selectItems value="#{listBean.measureList}" var="measure" itemValue="#{measure}"
+                                           itemLabel="#{measure.descricao}"/>
+                        </h:selectOneMenu>
                     </h:panelGroup>
                     <h:commandButton process="@form" value="+" action="#{listBean.add}"
                                      styleClass="btn btn-primary col-sm-1"/>
                 </h:panelGroup>
             </h:form>
-            <h:form styleClass="" style="width: 600px">
-                <h:panelGroup styleClass="mb-3 row d-flex justify-content-between align-items-center">
+            <h:form styleClass="d-flex justify-content-center align-items-center" style="width: 900px">
+                <h:panelGroup styleClass="mb-3 row d-flex justify-content-center align-items-center"
+                              style="width: 600px">
                     <h:panelGroup styleClass="col-sm-11">
                         <h:selectManyListbox id="list" value="#{listBean.selectedItems}" rows="5" cols="50"
                                              styleClass="form-control">
-                            <f:selectItems value="#{listBean.list}"/>
+                            <f:selectItems value="#{listBean.list}" var="item" itemValue="#{item.name}" itemLabel="#{item}"/>
                         </h:selectManyListbox>
                     </h:panelGroup>
                     <h:commandButton process="@form" value="-" action="#{listBean.remove}"
