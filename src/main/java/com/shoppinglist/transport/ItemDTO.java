@@ -2,11 +2,16 @@ package com.shoppinglist.transport;
 
 import com.shoppinglist.enumerator.MeasureEnum;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+import javax.validation.constraints.NotEmpty;
+
 public class ItemDTO {
     private Long id;
+
+    @NotEmpty(message = "{item.name.notempty}")
     private String name;
     private MeasureEnum unityType;
-
     private float quantity;
 
     public ItemDTO(String name, MeasureEnum unityType, float quantity) {
