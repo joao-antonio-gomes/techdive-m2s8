@@ -13,21 +13,29 @@
     <ui:define name="content">
         <h:panelGroup styleClass="" style="width: 900px">
             <h:form styleClass="" style="width: 900px">
-                <h:panelGroup styleClass="mb-3 row d-flex justify-content-between align-items-center">
+                <h:panelGroup styleClass="mb-3 row d-flex justify-content-between align-items-baseline">
                     <h:outputText value="Item" styleClass="form-label col-sm-1"/>
                     <h:panelGroup styleClass="col-sm-4">
-                        <h:inputText id="name" value="#{listBean.item.name}" styleClass="form-control"/>
+                        <h:inputText id="name" value="#{listBean.item.name}" styleClass="form-control" required="true"
+                                     requiredMessage="Campo obrigatório"/>
+                        <h:message for="name" styleClass="text-danger"/>
                     </h:panelGroup>
                     <h:outputText value="Quantidade" styleClass="form-label col-sm-1"/>
-                    <h:panelGroup styleClass="col-sm-1">
-                        <h:inputText id="quantity" value="#{listBean.item.quantity}" styleClass="form-control"/>
+                    <h:panelGroup styleClass="col-sm-2">
+                        <h:inputText id="quantity" value="#{listBean.item.quantity}" styleClass="form-control"
+                                     required="true" requiredMessage="Campo obrigatório" converterMessage="Por favor, digite um número decimal">
+                            <f:converter converterId="javax.faces.Float" />
+                        </h:inputText>
+                        <h:message for="quantity" styleClass="text-danger"/>
                     </h:panelGroup>
                     <h:panelGroup styleClass="col-sm-2">
-                        <h:selectOneMenu value="#{listBean.item.unityType}" styleClass="form-select">
+                        <h:selectOneMenu value="#{listBean.item.unityType}" id="unity" styleClass="form-select"
+                                         required="true" requiredMessage="Campo obrigatório">
                             <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
                             <f:selectItems value="#{listBean.measureList}" var="measure" itemValue="#{measure}"
                                            itemLabel="#{measure.descricao}"/>
                         </h:selectOneMenu>
+                        <h:message for="unity" styleClass="text-danger"/>
                     </h:panelGroup>
                     <h:commandButton process="@form" value="+" action="#{listBean.add}"
                                      styleClass="btn btn-primary col-sm-1"/>
@@ -39,7 +47,8 @@
                     <h:panelGroup styleClass="col-sm-11">
                         <h:selectManyListbox id="list" value="#{listBean.selectedItems}" rows="5" cols="50"
                                              styleClass="form-control">
-                            <f:selectItems value="#{listBean.list}" var="item" itemValue="#{item.name}" itemLabel="#{item}"/>
+                            <f:selectItems value="#{listBean.list}" var="item" itemValue="#{item.name}"
+                                           itemLabel="#{item}"/>
                         </h:selectManyListbox>
                     </h:panelGroup>
                     <h:commandButton process="@form" value="-" action="#{listBean.remove}"

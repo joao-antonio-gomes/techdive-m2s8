@@ -7,7 +7,9 @@ public class ItemDTO {
     private String name;
     private MeasureEnum unityType;
 
-    public ItemDTO(String name, MeasureEnum unityType, Integer quantity) {
+    private float quantity;
+
+    public ItemDTO(String name, MeasureEnum unityType, float quantity) {
         this.name = name;
         this.unityType = unityType;
         this.quantity = quantity;
@@ -40,15 +42,13 @@ public class ItemDTO {
         this.unityType = unityType;
     }
 
-    public Integer getQuantity() {
+    public float getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(float quantity) {
         this.quantity = quantity;
     }
-
-    private Integer quantity;
 
     @Override
     public String toString() {
