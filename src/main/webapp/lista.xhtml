@@ -24,7 +24,7 @@
                     <h:panelGroup styleClass="col-sm-2">
                         <h:inputText id="quantity" value="#{listBean.item.quantity}" styleClass="form-control"
                                      required="true" requiredMessage="Campo obrigatório" converterMessage="Por favor, digite um número decimal">
-                            <f:converter converterId="javax.faces.Float" />
+                            <f:validator validatorId="com.shoppinglist.validator.QuantityValidator" />
                         </h:inputText>
                         <h:message for="quantity" styleClass="text-danger"/>
                     </h:panelGroup>

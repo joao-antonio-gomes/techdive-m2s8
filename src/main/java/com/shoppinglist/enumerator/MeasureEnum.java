@@ -1,4 +1,4 @@
-package com.shoppinglist.bean;
+package com.shoppinglist.enumerator;
 
 public enum MeasureEnum {
     UNIDADES("Unidades"),

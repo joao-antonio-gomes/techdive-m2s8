@@ -1,5 +1,6 @@
 package com.shoppinglist.bean;
 
+import com.shoppinglist.enumerator.MeasureEnum;
 import com.shoppinglist.transport.ItemDTO;
 
 import javax.enterprise.context.SessionScoped;

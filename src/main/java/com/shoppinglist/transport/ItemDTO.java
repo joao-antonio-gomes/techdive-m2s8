@@ -1,6 +1,6 @@
 package com.shoppinglist.transport;
 
-import com.shoppinglist.bean.MeasureEnum;
+import com.shoppinglist.enumerator.MeasureEnum;
 
 public class ItemDTO {
     private Long id;
